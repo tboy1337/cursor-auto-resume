@@ -33,8 +33,6 @@ This tool automatically detects this message and clicks the "resume the conversa
 - **Enhanced DOM targeting**: Uses advanced selectors to accurately find rate limit messages in Cursor's interface
 - **Multi-scenario support**: Handles various error scenarios including connection issues and high demand errors
 - **Anti-spam**: 3-second cooldown between clicks to prevent issues
-- **Auto-stop**: Automatically stops after 30 minutes to prevent indefinite running
-- **Timer reset**: Call `click_reset()` in the console to reset the 30-minute timer
 - **Fallback mechanisms**: Multiple approaches to ensure compatibility with different Cursor versions
 
 ## Technical Details
@@ -53,7 +51,6 @@ The script uses a sophisticated multi-layered approach:
 2. **Fallback Detection**: XPath queries to locate rate limit text patterns in the DOM
 3. **Link Targeting**: Specifically targets `span.markdown-link` elements with `data-link` attributes for the resume action
 4. **Error Handling**: Detects and handles various error scenarios like connection failures and high demand messages
-5. **Timer Management**: 30-minute auto-stop with user-controlled reset functionality
 
 ## How to Use
 
@@ -87,9 +84,7 @@ The script will now automatically click the "resume the conversation" link whene
 
 ### Advanced Usage
 
-- **Reset Timer**: If you want to reset the 30-minute timer, type `click_reset()` in the browser console
 - **Monitor Activity**: The script logs all its actions to the console for debugging purposes
-- **Manual Stop**: The script will automatically stop after 30 minutes, or you can reload the page/window
 
 ## FAQ
 
@@ -99,14 +94,8 @@ Yes, the script only runs in your Cursor IDE and only clicks the specific "resum
 ### Will this work with future versions of Cursor?
 The script is designed with multiple fallback mechanisms and enhanced DOM targeting to maintain compatibility. As long as Cursor continues to use similar rate limit messages and "resume the conversation" links, the script should continue to work. If Cursor's interface changes, we'll update the tool to maintain compatibility while respecting their service.
 
-### How do I disable it?
-Close and reopen Cursor IDE, or refresh the window. The script automatically stops after 30 minutes.
-
 ### Does this bypass Cursor's rate limits?
 No. This tool only automates clicking the "resume the conversation" link that Cursor explicitly provides. It respects all cooldown periods and doesn't bypass any actual API limits. It simply automates an action that users are already permitted to perform manually.
-
-### Why does the script stop after 30 minutes?
-This is a safety feature to prevent indefinite running. You can reset the timer by calling `click_reset()` in the console if needed.
 
 ## License
 
@@ -120,4 +109,4 @@ Contributions are welcome! Please feel free to submit a pull request. When contr
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request 
+5. Open a Pull Request
